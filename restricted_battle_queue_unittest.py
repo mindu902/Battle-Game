@@ -1,22 +1,12 @@
 """
-Basic Unittests for your implementation of a RestrictedBattleQueue for A2.
-
-Passing these tests ensures that our test scripts can run on your code, and will
-determine a portion of your mark (see Grading Scheme).
-
-Passing these tests does NOT mean your code is flawless. These tests just
-check for all of the basic functionality, without searching too deeply for logic
-errors.
-
-Try playing your game through multiple times and trying various combinations of
-actions.
+Basic Unittests for RestrictedBattleQueue.
 """
 import unittest
 
 # Import the student solution
-from a2_game import CHARACTER_CLASSES
-from a2_playstyle import ManualPlaystyle
-from a2_battle_queue import RestrictedBattleQueue
+from game import CHARACTER_CLASSES
+from playstyle import ManualPlaystyle
+from battle_queue import RestrictedBattleQueue
 MageConstructor = CHARACTER_CLASSES['m']
 RogueConstructor = CHARACTER_CLASSES['r']
 

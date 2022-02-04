@@ -1,23 +1,22 @@
 """
-A non-UI (text-based) way of playing A1.
-    This is functionally similar to a2_ui.py in terms of processing actions
+A non-UI (text-based) way of playing.
+    This is functionally similar to ui.py in terms of processing actions
     but it lacks the 'automatic get_next_sprite() calling'. Instead, there's
     the choice to update the UI (which also happens after any attacks/actions
     are called).
 
-Run this file to play the game. You don't need to modify this file in any
-way, nor do you need to submit it.
+Run this file to play the game.
 
-This file simply calls on pygame and the code from a2_game.py, which contains
+This file simply calls on pygame and the code from game.py, which contains
 all of your client code.
 """
-import a2_game
+import game
 
 def start_game():
     """
     Start and initialize the game
     """
-    a2_game.set_up_game()
+    game.set_up_game()
 
 def update_game():
     """
@@ -25,7 +24,7 @@ def update_game():
     """
     to_draw = []
     
-    draw_parameters = a2_game.update_ui()
+    draw_parameters = game.update_ui()
     
     p1_sprite = draw_parameters['p1_sprite']
     p1_hp = draw_parameters['p1_hp']
@@ -52,7 +51,7 @@ def update_game():
     to_draw.append(p2_label)
     
     # Update the current player and available actions
-    if not a2_game.GAME_IS_OVER:
+    if not game.GAME_IS_OVER:
         actions = draw_parameters['actions']
         current_player = draw_parameters['current_player']
         action_label = ["Current Character: {}".format(current_player),
@@ -60,7 +59,7 @@ def update_game():
         to_draw.append("\n".join(action_label))
     else:
         game_label = ["Game over!"]
-        winner = a2_game.GAME_WINNER
+        winner = game.GAME_WINNER
         if winner:
             game_label.append("The winner is {}!".format(winner.get_name()))
         else:
@@ -77,10 +76,10 @@ if __name__ == '__main__':
     
     while True:
         # If the current player isn't using a manual playstyle, pick a move
-        if (not a2_game.GAME_IS_OVER):
-            if (not a2_game.BATTLE_QUEUE.is_over() and 
-                not a2_game.BATTLE_QUEUE.peek().playstyle.is_manual):
-                a2_game.perform_attack()
+        if (not game.GAME_IS_OVER):
+            if (not game.BATTLE_QUEUE.is_over() and 
+                not game.BATTLE_QUEUE.peek().playstyle.is_manual):
+                game.perform_attack()
                 update_game()
             else:
                 # Prompt for an action (until a valid one is provided)
@@ -88,8 +87,8 @@ if __name__ == '__main__':
                           "U: Update Display, Q: Quit Game): ")
                 k = input(prompt).strip().upper()
                 
-                a2_game.LAST_KEY_PRESSED = k
-                a2_game.perform_attack()
+                game.LAST_KEY_PRESSED = k
+                game.perform_attack()
                 
                 if (k in ['A', 'S', 'U']):
                     update_game()

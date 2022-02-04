@@ -1,12 +1,9 @@
 """
-The BattleQueue classes for A2.
+The BattleQueue classes.
 
-A BattleQueue is a queue that lets our game know in what order various 
+A BattleQueue is a queue that lets game know in what order various 
 characters are going to attack.
 
-BattleQueue has been completed for you, and the class header for 
-RestrictedBattleQueue has been provided. You must implement
-RestrictedBattleQueue and document it accordingly.
 """
 from typing import Union, List
 
@@ -33,8 +30,8 @@ class BattleQueue:
         any actions available to them.
         
         >>> bq = BattleQueue()
-        >>> from a2_characters import Rogue
-        >>> from a2_playstyle import ManualPlaystyle
+        >>> from characters import Rogue
+        >>> from playstyle import ManualPlaystyle
         >>> c = Rogue("Sophia", bq, ManualPlaystyle(bq))
         >>> c2 = Rogue("Sophia", bq, ManualPlaystyle(bq))
         >>> c.enemy = c2
@@ -52,8 +49,8 @@ class BattleQueue:
         Add character to this BattleQueue.
         
         >>> bq = BattleQueue()
-        >>> from a2_characters import Rogue
-        >>> from a2_playstyle import ManualPlaystyle
+        >>> from characters import Rogue
+        >>> from playstyle import ManualPlaystyle
         >>> c = Rogue("Sophia", bq, ManualPlaystyle(bq))
         >>> c2 = Rogue("Sophia", bq, ManualPlaystyle(bq))
         >>> c.enemy = c2
@@ -73,8 +70,8 @@ class BattleQueue:
         Remove and return the character at the front of this BattleQueue.
         
         >>> bq = BattleQueue()
-        >>> from a2_characters import Rogue
-        >>> from a2_playstyle import ManualPlaystyle
+        >>> from characters import Rogue
+        >>> from playstyle import ManualPlaystyle
         >>> c = Rogue("Sophia", bq, ManualPlaystyle(bq))
         >>> c2 = Rogue("Sophia", bq, ManualPlaystyle(bq))
         >>> c.enemy = c2
@@ -111,8 +108,8 @@ class BattleQueue:
         to this BattleQueue.
         
         >>> bq = BattleQueue()
-        >>> from a2_characters import Rogue
-        >>> from a2_playstyle import ManualPlaystyle
+        >>> from characters import Rogue
+        >>> from playstyle import ManualPlaystyle
         >>> c = Rogue("Sophia", bq, ManualPlaystyle(bq))
         >>> c2 = Rogue("Sophia", bq, ManualPlaystyle(bq))
         >>> c.enemy = c2
@@ -145,8 +142,8 @@ class BattleQueue:
         >>> bq.is_over()
         True
         
-        >>> from a2_characters import Rogue
-        >>> from a2_playstyle import ManualPlaystyle
+        >>> from characters import Rogue
+        >>> from playstyle import ManualPlaystyle
         >>> c = Rogue("Sophia", bq, ManualPlaystyle(bq))
         >>> c2 = Rogue("Sophia", bq, ManualPlaystyle(bq))
         >>> c.enemy = c2
@@ -169,8 +166,8 @@ class BattleQueue:
         if the game is over. Otherwise, return None.
         
         >>> bq = BattleQueue()
-        >>> from a2_characters import Rogue
-        >>> from a2_playstyle import ManualPlaystyle
+        >>> from characters import Rogue
+        >>> from playstyle import ManualPlaystyle
         >>> c = Rogue("Sophia", bq, ManualPlaystyle(bq))
         >>> c2 = Rogue("Sophia", bq, ManualPlaystyle(bq))
         >>> c.enemy = c2
@@ -195,8 +192,8 @@ class BattleQueue:
         the copy do not affect this BattleQueue.
         
         >>> bq = BattleQueue()
-        >>> from a2_characters import Rogue
-        >>> from a2_playstyle import ManualPlaystyle
+        >>> from characters import Rogue
+        >>> from playstyle import ManualPlaystyle
         >>> c = Rogue("r", bq, ManualPlaystyle(bq))
         >>> c2 = Rogue("r2", bq, ManualPlaystyle(bq))
         >>> c.enemy = c2
@@ -234,8 +231,8 @@ class BattleQueue:
         Return a representation of this BattleQueue.
         
         >>> bq = BattleQueue()
-        >>> from a2_characters import Rogue
-        >>> from a2_playstyle import ManualPlaystyle
+        >>> from characters import Rogue
+        >>> from playstyle import ManualPlaystyle
         >>> c = Rogue("r", bq, ManualPlaystyle(bq))
         >>> c2 = Rogue("r2", bq, ManualPlaystyle(bq))
         >>> c.enemy = c2
@@ -361,4 +358,4 @@ class RestrictedBattleQueue(BattleQueue):
 
 if __name__ == '__main__':
     import python_ta
-    python_ta.check_all(config='a2_pyta.txt')
+    python_ta.check_all(config='pyta.txt')

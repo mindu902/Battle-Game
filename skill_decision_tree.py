@@ -1,19 +1,15 @@
 """
-The SkillDecisionTree class for A2.
+The SkillDecisionTree class.
 
-You are to implement the pick_skill() method in SkillDecisionTree, as well as
-implement create_default_tree() such that it returns the example tree used in
-a2.pdf.
 
-This tree will be used during the gameplay of a2_game, but we may test your
-SkillDecisionTree with other examples.
+This tree will be used during the gameplay of game.py.
 """
 from typing import Callable, List, Union
-from a2_skills import RogueAttack, RogueSpecial, MageAttack, MageSpecial
+from skills import RogueAttack, RogueSpecial, MageAttack, MageSpecial
 
 class SkillDecisionTree:
     """
-    A class representing the SkillDecisionTree used by Sorcerer's in A2.
+    A class representing the SkillDecisionTree used by Sorcerer's in.
     
     value - the skill that this SkillDecisionTree contains.
     condition - the function that this SkillDecisionTree will check.
@@ -36,7 +32,7 @@ class SkillDecisionTree:
         function condition, priority number priority, and the children in
         children, if provided.
         
-        >>> from a2_skills import MageAttack
+        >>> from skills import MageAttack
         >>> def f(caster, target):
         ...     return caster.hp > 50
         >>> t = SkillDecisionTree(MageAttack(), f, 1)
@@ -53,7 +49,7 @@ class SkillDecisionTree:
     def __repr__(self) -> str:
         """
         Return the representation of SkillDecisionTree.
-        >>> from a2_skills import MageAttack
+        >>> from skills import MageAttack
         >>> def f(caster, _):
         ...     return caster.hp > 50
         >>> t = SkillDecisionTree(MageAttack(), f, 1)
@@ -72,10 +68,10 @@ class SkillDecisionTree:
         Pick the skill with the highest priority, and fulfills the conditions.
 
         >>> sdt = create_default_tree()
-        >>> from a2_battle_queue import BattleQueue
+        >>> from battle_queue import BattleQueue
         >>> bq = BattleQueue()
-        >>> from a2_playstyle import ManualPlaystyle
-        >>> from a2_characters import Rogue, Mage, Vampire, Sorcerer
+        >>> from playstyle import ManualPlaystyle
+        >>> from characters import Rogue, Mage, Vampire, Sorcerer
         >>> caster = Vampire("Caster", bq, ManualPlaystyle(bq))
         >>> target = Vampire("Target", bq, ManualPlaystyle(bq))
         >>> caster.set_hp(100)
@@ -101,10 +97,10 @@ class SkillDecisionTree:
         Return a list of skills that fulfills the condition.
 
         >>> sdt = create_default_tree()
-        >>> from a2_battle_queue import BattleQueue
+        >>> from battle_queue import BattleQueue
         >>> bq = BattleQueue()
-        >>> from a2_playstyle import ManualPlaystyle
-        >>> from a2_characters import Rogue, Mage, Vampire, Sorcerer
+        >>> from playstyle import ManualPlaystyle
+        >>> from characters import Rogue, Mage, Vampire, Sorcerer
         >>> caster = Vampire("Caster", bq, ManualPlaystyle(bq))
         >>> target = Vampire("Target", bq, ManualPlaystyle(bq))
         >>> caster.set_hp(100)
@@ -125,13 +121,13 @@ class SkillDecisionTree:
 
 def create_default_tree() -> SkillDecisionTree:
     """
-    Return a SkillDecisionTree that matches the one described in a2.pdf.
+    Return a SkillDecisionTree.
 
     >>> sdt = create_default_tree()
-    >>> from a2_battle_queue import BattleQueue
+    >>> from battle_queue import BattleQueue
     >>> bq = BattleQueue()
-    >>> from a2_playstyle import ManualPlaystyle
-    >>> from a2_characters import Rogue, Mage, Vampire, Sorcerer
+    >>> from playstyle import ManualPlaystyle
+    >>> from characters import Rogue, Mage, Vampire, Sorcerer
     >>> caster = Vampire("Caster", bq, ManualPlaystyle(bq))
     >>> target = Vampire("Target", bq, ManualPlaystyle(bq))
     >>> caster.set_hp(80)
@@ -199,4 +195,4 @@ def create_default_tree() -> SkillDecisionTree:
 
 if __name__ == '__main__':
     import python_ta
-    python_ta.check_all(config='a2_pyta.txt')
+    python_ta.check_all(config='pyta.txt')

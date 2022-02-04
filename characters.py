@@ -1,20 +1,11 @@
 """
-The Character classes for A2.
+The Character classes.
 
-See a2_skills for how skills are handled.
-Character, Mage, and Rogue have all been provided to you, with full
-documentation.
-
-You are responsible for creating classes for the Vampire and Sorcerer outlined
-in a2.pdf, as well as writing all documentation for them.
-
-Sorcerers must have a method called set_skill_decision_tree which takes in
-a SkillDecisionTree to be used whenever the Sorcerer attacks.
 """
 from typing import List
-from a2_skills import MageAttack, MageSpecial, RogueAttack, RogueSpecial, \
+from skills import MageAttack, MageSpecial, RogueAttack, RogueSpecial, \
     VampireAttack, VampireSpecial, SorcererAttack, SorcererSpecial
-from a2_skill_decision_tree import create_default_tree
+from skill_decision_tree import create_default_tree
 
 class Character:
     """
@@ -190,8 +181,8 @@ class Mage(Character):
         Initialize this Mage with the name name, battle_queue bq, and
         playstyle ps.
         
-        >>> from a2_battle_queue import BattleQueue
-        >>> from a2_playstyle import ManualPlaystyle
+        >>> from battle_queue import BattleQueue
+        >>> from playstyle import ManualPlaystyle
         >>> bq = BattleQueue()
         >>> c = Mage("m", bq, ManualPlaystyle(bq))
         >>> c2 = Mage("m2", bq, ManualPlaystyle(bq))
@@ -210,8 +201,8 @@ class Mage(Character):
         """
         Return a copy of this Mage whose BattleQueue is new_battle_queue.
         
-        >>> from a2_battle_queue import BattleQueue
-        >>> from a2_playstyle import ManualPlaystyle
+        >>> from battle_queue import BattleQueue
+        >>> from playstyle import ManualPlaystyle
         >>> bq = BattleQueue()
         >>> c = Mage("m", bq, ManualPlaystyle(bq))
         >>> c2 = Mage("m2", bq, ManualPlaystyle(bq))
@@ -255,8 +246,8 @@ class Rogue(Character):
         Initialize this Rogue with the name name, battle_queue bq, and
         playstyle ps.
         
-        >>> from a2_battle_queue import BattleQueue
-        >>> from a2_playstyle import ManualPlaystyle
+        >>> from battle_queue import BattleQueue
+        >>> from playstyle import ManualPlaystyle
         >>> bq = BattleQueue()
         >>> c = Rogue("r", bq, ManualPlaystyle(bq))
         >>> c2 = Rogue("r2", bq, ManualPlaystyle(bq))
@@ -275,8 +266,8 @@ class Rogue(Character):
         """
         Return a copy of this Rogue whose BattleQueue is new_battle_queue.
         
-        >>> from a2_battle_queue import BattleQueue
-        >>> from a2_playstyle import ManualPlaystyle
+        >>> from battle_queue import BattleQueue
+        >>> from playstyle import ManualPlaystyle
         >>> bq = BattleQueue()
         >>> c = Rogue("r", bq, ManualPlaystyle(bq))
         >>> c2 = Rogue("r2", bq, ManualPlaystyle(bq))
@@ -324,8 +315,8 @@ class Vampire(Character):
         playstyle ps.
         Inheritance from super class Character.
 
-        >>> from a2_battle_queue import BattleQueue
-        >>> from a2_playstyle import ManualPlaystyle
+        >>> from battle_queue import BattleQueue
+        >>> from playstyle import ManualPlaystyle
         >>> bq = BattleQueue()
         >>> c = Vampire("v", bq, ManualPlaystyle(bq))
         >>> c2 = Vampire("v2", bq, ManualPlaystyle(bq))
@@ -344,8 +335,8 @@ class Vampire(Character):
         """
         Return a copy of this Vampire whose BattleQueue is new_battle_queue.
 
-        >>> from a2_battle_queue import BattleQueue
-        >>> from a2_playstyle import ManualPlaystyle
+        >>> from battle_queue import BattleQueue
+        >>> from playstyle import ManualPlaystyle
         >>> bq = BattleQueue()
         >>> c = Vampire("v", bq, ManualPlaystyle(bq))
         >>> c2 = Vampire("v2", bq, ManualPlaystyle(bq))
@@ -390,8 +381,8 @@ class Sorcerer(Character):
         playstyle ps.
         Inheritance from super class Character.
 
-        >>> from a2_battle_queue import BattleQueue
-        >>> from a2_playstyle import ManualPlaystyle
+        >>> from battle_queue import BattleQueue
+        >>> from playstyle import ManualPlaystyle
         >>> bq = BattleQueue()
         >>> c = Sorcerer("s", bq, ManualPlaystyle(bq))
         >>> c2 = Sorcerer("s2", bq, ManualPlaystyle(bq))
@@ -410,8 +401,8 @@ class Sorcerer(Character):
     def copy(self, new_battle_queue: 'BattleQueue') -> 'Sorcerer':
         """
         Return a copy of this Sorcerer whose BattleQueue is new_battle_queue.
-        >>> from a2_battle_queue import BattleQueue
-        >>> from a2_playstyle import ManualPlaystyle
+        >>> from battle_queue import BattleQueue
+        >>> from playstyle import ManualPlaystyle
         >>> bq = BattleQueue()
         >>> c = Sorcerer("s", bq, ManualPlaystyle(bq))
         >>> c2 = Sorcerer("s2", bq, ManualPlaystyle(bq))
@@ -444,8 +435,8 @@ class Sorcerer(Character):
             -> None:
         """
         Set skill decision tree for each Sorcerer.
-        >>> from a2_battle_queue import BattleQueue
-        >>> from a2_playstyle import ManualPlaystyle
+        >>> from battle_queue import BattleQueue
+        >>> from playstyle import ManualPlaystyle
         >>> bq = BattleQueue()
         >>> c = Sorcerer("s", bq, ManualPlaystyle(bq))
         >>> sdt = create_default_tree()
@@ -458,8 +449,8 @@ class Sorcerer(Character):
     def get_skill_decision_tree(self) -> 'SkillDecisionTree':
         """
         Set skill decision tree for each Sorcerer.
-        >>> from a2_battle_queue import BattleQueue
-        >>> from a2_playstyle import ManualPlaystyle
+        >>> from battle_queue import BattleQueue
+        >>> from playstyle import ManualPlaystyle
         >>> bq = BattleQueue()
         >>> c = Sorcerer("s", bq, ManualPlaystyle(bq))
         >>> sdt = create_default_tree()
@@ -471,4 +462,4 @@ class Sorcerer(Character):
     
 if __name__ == '__main__':
     import python_ta
-    python_ta.check_all(config='a2_pyta.txt')
+    python_ta.check_all(config='pyta.txt')

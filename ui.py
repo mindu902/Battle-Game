@@ -1,14 +1,12 @@
 
 """
-The UI for A1.
+The UI.
 
-Run this file to play the game. You don't need to modify this file in any
-way, nor do you need to submit it.
+Run this file to play the game. 
 
-This file simply calls on pygame and the code from a2_game.py, which contains
-all of your client code.
+This file calls on pygame and the code from game.py.
 """
-import a2_game
+import game
 import pygame
 import sys
 
@@ -29,7 +27,7 @@ def start_game():
     Start and initialize the game
     """
     global PYGAME_SCREEN, CHARACTER_SIZE, NUMBER_OF_CHARACTERS, FONT_SIZE
-    a2_game.set_up_game()
+    game.set_up_game()
     
     # Set up the width and height of the screen (proportional to the character
     # sizes)
@@ -47,7 +45,7 @@ def update_game():
     """
     global PYGAME_SCREEN, CHARACTER_SIZE, P1_POSITION, P2_POSITION
     
-    draw_parameters = a2_game.update_ui()
+    draw_parameters = game.update_ui()
     
     p1_sprite = draw_parameters['p1_sprite']
     p1_hp = draw_parameters['p1_hp']
@@ -103,7 +101,7 @@ def update_game():
         y_coordinate += FONT_SIZE    
     
     # Update the current player and available actions
-    if not a2_game.GAME_IS_OVER:
+    if not game.GAME_IS_OVER:
         actions = draw_parameters['actions']
         current_player = draw_parameters['current_player']
         action_label = ["Current Character: {}".format(current_player),
@@ -116,7 +114,7 @@ def update_game():
             y_coordinate += FONT_SIZE
     else:
         game_label = ["Game over!"]
-        winner = a2_game.GAME_WINNER
+        winner = game.GAME_WINNER
         if winner:
             game_label.append("The winner is {}!".format(winner.get_name()))
         else:
@@ -141,26 +139,26 @@ if __name__ == '__main__':
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit(0)
-            if event.type == pygame.KEYDOWN and not a2_game.GAME_IS_OVER:
+            if event.type == pygame.KEYDOWN and not game.GAME_IS_OVER:
                 # If the current player is using a manual playstyle, the
                 # pick a move when a key is pressed
-                if (not a2_game.BATTLE_QUEUE.is_over() and 
-                    a2_game.BATTLE_QUEUE.peek().playstyle.is_manual):
+                if (not game.BATTLE_QUEUE.is_over() and 
+                    game.BATTLE_QUEUE.peek().playstyle.is_manual):
                     k = 'X'
                     if event.key == pygame.K_a:
                         k = 'A'
                     elif event.key == pygame.K_s:
                         k = 'S'
                         
-                    a2_game.LAST_KEY_PRESSED = k
-                    a2_game.perform_attack()
+                    game.LAST_KEY_PRESSED = k
+                    game.perform_attack()
                 
         # If the current player isn't using a manual playstyle, pick a move
-        if (not a2_game.GAME_IS_OVER and
-            not a2_game.BATTLE_QUEUE.is_over() and 
-            not a2_game.BATTLE_QUEUE.peek().playstyle.is_manual and
+        if (not game.GAME_IS_OVER and
+            not game.BATTLE_QUEUE.is_over() and 
+            not game.BATTLE_QUEUE.peek().playstyle.is_manual and
             RANDOM_TIMER == 10):
-            a2_game.perform_attack()
+            game.perform_attack()
     
         # Redraw the game
         update_game()

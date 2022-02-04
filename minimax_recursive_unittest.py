@@ -1,27 +1,18 @@
 """
-Basic Unittests for your implementation of a Iterative Minimax Playstyle for A2.
+Basic Unittests Recursive Minimax Playstyle.
 
-Passing these tests ensures that our test scripts can run on your code, and will
-determine a portion of your mark (see Grading Scheme).
-
-Passing these tests does NOT mean your code is flawless. These tests just
-check for all of the basic functionality, without searching too deeply for logic
-errors.
-
-Try playing your game through multiple times and trying various combinations of
-actions.
 """
 import unittest
 
 # Import the student solution
-from a2_game import CHARACTER_CLASSES, PLAYSTYLE_CLASSES
-from a2_playstyle import get_state_score, ManualPlaystyle
-from a2_battle_queue import BattleQueue
+from game import CHARACTER_CLASSES, PLAYSTYLE_CLASSES
+from playstyle import get_state_score, ManualPlaystyle
+from battle_queue import BattleQueue
 MageConstructor = CHARACTER_CLASSES['m']
 RogueConstructor = CHARACTER_CLASSES['r']
-Minimax = PLAYSTYLE_CLASSES['mi']
+Minimax = PLAYSTYLE_CLASSES['mr']
 
-class IterativeMinimaxUnitTests(unittest.TestCase):
+class RecursiveMinimaxUnitTests(unittest.TestCase):
     def setUp(self):
         """
         Sets up a Battle Queue containing 2 a Mage and Rogue for all of the 
@@ -49,6 +40,62 @@ class IterativeMinimaxUnitTests(unittest.TestCase):
         del self.p1
         del self.p2
     
+    def test_get_state_score_docstring_example_1(self):
+        """
+        Test get_state_score to make sure it works for the docstring example
+        provided.
+        """
+        self.p2.set_hp(3)
+        bq = repr(self.battle_queue)
+        actual = get_state_score(self.battle_queue)
+        expected = 100
+        
+        self.assertEqual(expected, actual,
+                         ("Calling get_state_score on a BattleQueue that " +
+                          "looks like:\n{}\nShould return the score {} " +
+                          "but got {} instead.").format(bq,
+                                                        expected,
+                                                        actual))
+        
+    def test_get_state_score_docstring_example_2(self):
+        """
+        Test get_state_score to make sure it works for the docstring example
+        provided.
+        """
+        self.p2.set_hp(3)
+        self.p1.set_hp(40)
+        bq = repr(self.battle_queue)
+        actual = get_state_score(self.battle_queue)
+        expected = 40
+        
+        self.assertEqual(expected, actual,
+                         ("Calling get_state_score on a BattleQueue that " +
+                          "looks like:\n{}\nShould return the score {} " +
+                          "but got {} instead.").format(bq,
+                                                        expected,
+                                                        actual))
+        
+
+    def test_get_state_score_docstring_example_3(self):
+        """
+        Test get_state_score to make sure it works for the docstring example
+        provided.
+        """
+        self.p2.set_hp(3)
+        self.p1.set_hp(40)
+        self.battle_queue.remove()
+        self.battle_queue.add(self.p1)
+        bq = repr(self.battle_queue)
+        actual = get_state_score(self.battle_queue)
+        expected = -10
+        
+        self.assertEqual(expected, actual,
+                         ("Calling get_state_score on a BattleQueue that " +
+                          "looks like:\n{}\nShould return the score {} " +
+                          "but got {} instead.").format(bq,
+                                                        expected,
+                                                        actual))
+        
     def test_select_attack_one_attack(self):
         """
         Test to make sure calling select_attack when only one attack is

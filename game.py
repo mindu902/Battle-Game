@@ -1,31 +1,20 @@
-"""
-The client code for A2.
 
-Replace the 'None's in the dictionary with the classes you define. Make sure
-you import those classes. We've added Mage, Rogue, and BattleQueue for you
-already.
-
-Do NOT run PythonTA on this file.
-We will not grade the documentation of this file.
-"""
 # Import classes as needed
-from a2_battle_queue import BattleQueue, RestrictedBattleQueue
-from a2_playstyle import ManualPlaystyle, RandomPlaystyle, MinimaxRecursive, MinimaxIterative
-from a2_characters import Mage, Rogue, Vampire, Sorcerer
-from a2_skill_decision_tree import create_default_tree
+from battle_queue import BattleQueue, RestrictedBattleQueue
+from playstyle import ManualPlaystyle, RandomPlaystyle, MinimaxRecursive, MinimaxIterative
+from characters import Mage, Rogue, Vampire, Sorcerer
+from skill_decision_tree import create_default_tree
 
-# Replace None with the name of your Character classes
-# v should map to your class for your Vampire
-# s should map to your class for your Sorcerer
+# v map to your class for your Vampire
+# s map to your class for your Sorcerer
 CHARACTER_CLASSES = {'m': Mage,
                      'r': Rogue,
                      'v': Vampire,
                      's': Sorcerer
                     }
 
-# Replace None with the name of your Playstyle classes
-# mr should map to your class for your recursive minimax playstyle
-# mi should map to your class for your iterative minimax playstyle
+# mr map to your class for your recursive minimax playstyle
+# mi map to your class for your iterative minimax playstyle
 PLAYSTYLE_CLASSES = {'m': ManualPlaystyle,
                      'r': RandomPlaystyle,
                      'mr': MinimaxRecursive,
@@ -36,11 +25,6 @@ BATTLE_QUEUE_CLASSES = {'n': BattleQueue,
                         'r': RestrictedBattleQueue
                         }
 
-# Do not change any of the code below
-# You may NOT use or modify any of the variables defined below within your code
-# they're only to be used by a1_game.py and a1_ui.py.
-# (i.e. don't reference BATTLE_QUEUE, LAST_KEY_PRESSED, P1, P2, GAME_IS_OVER,
-#  or GAME_WINNER anywhere in your code.)
 BATTLE_QUEUE = None
 LAST_KEY_PRESSED = None
 P1 = None

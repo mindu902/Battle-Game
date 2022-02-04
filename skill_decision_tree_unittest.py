@@ -1,25 +1,16 @@
 """
-Basic Unittests for your implementation of SkillDecisionTree for A2.
+Basic Unittests for SkillDecisionTree.
 
-Passing these tests ensures that our test scripts can run on your code, and will
-determine a portion of your mark (see Grading Scheme).
-
-Passing these tests does NOT mean your code is flawless. These tests just
-check for all of the basic functionality, without searching too deeply for logic
-errors.
-
-Try playing your game through multiple times and trying various combinations of
-actions.
 """
 import unittest
 
 # Import the student solution
-from a2_game import CHARACTER_CLASSES
-from a2_playstyle import ManualPlaystyle
-from a2_battle_queue import BattleQueue
-from a2_skill_decision_tree import SkillDecisionTree, create_default_tree
-from a2_skills import MageAttack, RogueAttack, MageSpecial
-from a2_characters import Rogue
+from game import CHARACTER_CLASSES
+from playstyle import ManualPlaystyle
+from battle_queue import BattleQueue
+from skill_decision_tree import SkillDecisionTree, create_default_tree
+from skills import MageAttack, RogueAttack, MageSpecial
+from characters import Rogue
 
 class SkillDecisionTreeUnitTests(unittest.TestCase):    
     def create_basic_tree(self):

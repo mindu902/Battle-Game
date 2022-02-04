@@ -1,12 +1,9 @@
 """
-Modified the ADTs implemented from lecture.
 
 This includes the Stack, Queue, and an abstract parent class (Container)
 
-REMINDER: NEVER USE THE NAME stack.py OR queue.py FOR YOUR FILES.
-          PythonTA will break. :(
 """
-from a2_playstyle import *
+from playstyle import *
 
 class Container:
     """
@@ -58,7 +55,7 @@ class StateStack(Container):
         """
         Add value this Stack.
 
-        >>> from a2_battle_queue import *
+        >>> from battle_queue import *
         >>> s = StateStack()
         >>> bq = BattleQueue()
         >>> state = State(1, bq)
@@ -72,7 +69,7 @@ class StateStack(Container):
         """
         Remove an item from the top of this Stack.
 
-        >>> from a2_battle_queue import *
+        >>> from battle_queue import *
         >>> s = StateStack()
         >>> bq = BattleQueue()
         >>> state = State(1, bq)
@@ -87,7 +84,7 @@ class StateStack(Container):
         Return whether this Stack is empty or not (whether there's nothing
         left to remove.)
         
-        >>> from a2_battle_queue import *
+        >>> from battle_queue import *
         >>> s = StateStack()
         >>> bq = BattleQueue()
         >>> state = State(1, bq)

@@ -1,9 +1,6 @@
 """
-The Skill classes for A2.
+The Skill classes.
 
-See a2_characters.py for how these are used.
-For any skills you make, you're responsible for making sure their style adheres
-to PythonTA and that you include all documentation for it.
 """
 
 class Skill:
@@ -85,9 +82,9 @@ class MageSpecial(Skill):
         """
         Makes caster use a Mage's SpecialAttack on target.
         
-        >>> from a2_playstyle import ManualPlaystyle
-        >>> from a2_battle_queue import BattleQueue
-        >>> from a2_characters import Rogue, Mage
+        >>> from playstyle import ManualPlaystyle
+        >>> from battle_queue import BattleQueue
+        >>> from characters import Rogue, Mage
         >>> bq = BattleQueue()
         >>> r = Rogue("r", bq, ManualPlaystyle(bq))
         >>> m = Mage("m", bq, ManualPlaystyle(bq))
@@ -138,9 +135,9 @@ class RogueSpecial(Skill):
         """
         Makes caster use a Rogue's SpecialAttack on target.
         
-        >>> from a2_playstyle import ManualPlaystyle
-        >>> from a2_battle_queue import BattleQueue
-        >>> from a2_characters import Rogue, Mage
+        >>> from playstyle import ManualPlaystyle
+        >>> from battle_queue import BattleQueue
+        >>> from characters import Rogue, Mage
         >>> bq = BattleQueue()
         >>> r = Rogue("r", bq, ManualPlaystyle(bq))
         >>> m = Mage("m", bq, ManualPlaystyle(bq))
@@ -174,9 +171,9 @@ class VampireAttack(NormalAttack):
     def use(self, caster: 'Character', target: 'Character') -> None:
         """
         Makes caster use a Vampire's SpecialAttack on target.
-        >>> from a2_playstyle import ManualPlaystyle
-        >>> from a2_battle_queue import BattleQueue
-        >>> from a2_characters import Rogue, Mage, Vampire, Sorcerer
+        >>> from playstyle import ManualPlaystyle
+        >>> from battle_queue import BattleQueue
+        >>> from characters import Rogue, Mage, Vampire, Sorcerer
         >>> bq = BattleQueue()
         >>> v = Vampire("v", bq, ManualPlaystyle(bq))
         >>> s = Sorcerer("s", bq, ManualPlaystyle(bq))
@@ -214,9 +211,9 @@ class VampireSpecial(Skill):
     def use(self, caster: 'Character', target: 'Character') -> None:
         """
         Makes caster use a Vampire's SpecialAttack on target.
-        >>> from a2_playstyle import ManualPlaystyle
-        >>> from a2_battle_queue import BattleQueue
-        >>> from a2_characters import Rogue, Mage, Vampire, Sorcerer
+        >>> from playstyle import ManualPlaystyle
+        >>> from battle_queue import BattleQueue
+        >>> from characters import Rogue, Mage, Vampire, Sorcerer
         >>> bq = BattleQueue()
         >>> v = Vampire("v", bq, ManualPlaystyle(bq))
         >>> s = Sorcerer("s", bq, ManualPlaystyle(bq))
@@ -257,9 +254,9 @@ class SorcererAttack(NormalAttack):
     def use(self, caster: 'Character', target: 'Character') -> None:
         """
         Makes caster use a Sorcerer's Attack on target.
-        >>> from a2_playstyle import ManualPlaystyle
-        >>> from a2_battle_queue import BattleQueue
-        >>> from a2_characters import Rogue, Mage, Vampire, Sorcerer
+        >>> from playstyle import ManualPlaystyle
+        >>> from battle_queue import BattleQueue
+        >>> from characters import Rogue, Mage, Vampire, Sorcerer
         >>> bq = BattleQueue()
         >>> v = Vampire("v", bq, ManualPlaystyle(bq))
         >>> s = Sorcerer("s", bq, ManualPlaystyle(bq))
@@ -294,9 +291,9 @@ class SorcererSpecial(Skill):
     def use(self, caster: 'Character', target: 'Character') -> None:
         """
         Makes caster use a Sorcerer's SpecialAttack on target.
-        >>> from a2_playstyle import ManualPlaystyle
-        >>> from a2_battle_queue import BattleQueue
-        >>> from a2_characters import Rogue, Mage, Vampire, Sorcerer
+        >>> from playstyle import ManualPlaystyle
+        >>> from battle_queue import BattleQueue
+        >>> from characters import Rogue, Mage, Vampire, Sorcerer
         >>> bq = BattleQueue()
         >>> v = Vampire("v", bq, ManualPlaystyle(bq))
         >>> s = Sorcerer("s", bq, ManualPlaystyle(bq))
@@ -323,4 +320,4 @@ class SorcererSpecial(Skill):
 
 if __name__ == '__main__':
     import python_ta
-    python_ta.check_all(config='a2_pyta.txt')
+    python_ta.check_all(config='pyta.txt')

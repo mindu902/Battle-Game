@@ -1,13 +1,9 @@
 """
-The Playstyle classes for A2.
-Docstring examples are not required for Playstyles.
-
-You are responsible for implementing the get_state_score function, as well as
-creating classes for both Iterative Minimax and Recursive Minimax.
+The Playstyle classes.
 """
 from typing import Any
 import random
-from a2_state_stack import StateStack
+from state_stack import StateStack
 
 class Playstyle:
     """
@@ -113,8 +109,8 @@ def get_state_score(battle_queue: 'BattleQueue') -> int:
     HP of the character who still has HP. If there is no winner (i.e. there's
     a tie) then the score is 0.
 
-    >>> from a2_battle_queue import BattleQueue
-    >>> from a2_characters import Rogue, Mage
+    >>> from battle_queue import BattleQueue
+    >>> from characters import Rogue, Mage
     >>> bq = BattleQueue()
     >>> r = Rogue("r", bq, ManualPlaystyle(bq))
     >>> m = Mage("m", bq, ManualPlaystyle(bq))
@@ -169,8 +165,8 @@ def get_state_score_iterative(battle_queue: 'BattleQueue') -> int:
     """
     Same as get_state_score but without recursion.
 
-    >>> from a2_battle_queue import BattleQueue
-    >>> from a2_characters import Rogue, Mage
+    >>> from battle_queue import BattleQueue
+    >>> from characters import Rogue, Mage
     >>> bq = BattleQueue()
     >>> r = Rogue("r", bq, ManualPlaystyle(bq))
     >>> m = Mage("m", bq, ManualPlaystyle(bq))
@@ -339,4 +335,4 @@ if __name__ == '__main__':
     import doctest
     doctest.testmod()
     # import python_ta
-    # python_ta.check_all(config='a2_pyta.txt')
+    # python_ta.check_all(config='pyta.txt')
